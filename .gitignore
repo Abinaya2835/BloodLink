@@ -18,3 +18,4 @@ server/.env
 # Logs
 *.log
 npm-debug.log*
+BloodLink/
