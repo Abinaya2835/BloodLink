@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://bloodlink-backend-9jhe.onrender.com/api"
+    baseURL: "https://bloodlink-backend-new.onrender.com/api"
 });
 
 // Automatically attach the Bearer token
