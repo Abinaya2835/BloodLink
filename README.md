@@ -1,50 +1,112 @@
 # BloodLink – Blood Donor & Blood Bank Management Platform
 
-**BloodLink** is a full-stack MERN (MongoDB, Express, React, Node.js) web platform designed to seamlessly connect blood donors, certified blood banks, and patients/hospitals during urgent medical emergencies.
+BloodLink is a full-stack MERN (MongoDB, Express.js, React.js, Node.js) web application designed to connect blood donors, blood banks, and patients or hospitals during urgent medical situations.
+
+The platform provides a centralized system for donor discovery, blood inventory management, emergency blood requests, and request tracking. It aims to simplify communication between blood donors, blood banks, and people seeking blood assistance.
+
+## 🌐 Live Deployment
+
+- **Live Website:** https://bloodlink-frontend-44lx.onrender.com
+- **GitHub Repository:** https://github.com/Abinaya2835/BloodLink
 
 ---
 
 ## 🌟 Key Features
 
-### 1. Multi-Role Authentication & Access Control
-- **Blood Donors:** Register and maintain a public profile, toggle donation availability, submit urgent blood requests, and track request history.
-- **Blood Banks:** Register medical facilities, manage real-time inventory for all 8 blood groups, review incoming patient/hospital requests, and approve or reject requests.
-- **System Administrator:** Platform-wide oversight with live analytics, user management (search, filter, and delete), donor & blood bank directories, and system request inspection.
+### 1. Multi-Role Authentication and Access Control
 
-### 2. Blood Request System (Priority 1)
-- **Submit Emergency Requests:** Validate blood groups (`A+`, `A-`, `B+`, `B-`, `AB+`, `AB-`, `O+`, `O-`), hospital names, cities, required units, and medical reasons.
-- **My Blood Requests:** Live tracking cards with color-coded status badges: `pending` (amber), `approved` (green), `fulfilled` (gold), `rejected` (red), and `cancelled` (gray).
-- **Interactive Cancellation:** Requester can cancel pending requests at any time.
+**Blood Donors**
+- Register and maintain donor profiles.
+- Update personal contact information.
+- Toggle donation availability.
+- Search and discover blood donors.
+- Submit emergency blood requests.
+- Track personal blood request history.
 
-### 3. Blood Bank Request Management (Priority 2)
-- **Incoming Requests Feed:** Real-time visibility into urgent hospital requests.
-- **Smart Filtering:** Filter requests instantly by blood group, status, or city.
-- **One-Click Actions:** Blood banks can approve, reject, or mark requests as fulfilled.
-- **Facility Attribution:** Approved requests display the handling blood bank's contact name, city, and phone number directly to the requester.
+**Blood Banks**
+- Register blood bank accounts.
+- Manage blood inventory for all eight blood groups.
+- View incoming blood requests.
+- Filter requests by blood group, city, and status.
+- Approve, reject, or mark requests as fulfilled.
 
-### 4. Donor Discovery & Management (Priority 3)
-- **Donor Availability Toggle:** Donors can toggle their status (`Available to Donate` vs `Unavailable`) with one click from their dashboard.
-- **Profile Management:** Donors can update their phone number, city, and state.
-- **Emergency Donor Search:** Seekers can filter donors by blood group and city.
-- **Direct Emergency Call:** Instant `tel:` contact button so families and hospitals can phone donors directly without delay.
+**System Administrator**
+- View platform-wide analytics.
+- Manage registered users.
+- Search and filter accounts by name, email, and role.
+- View donor and blood bank directories.
+- Inspect all blood requests.
 
-### 5. Administrator Control Center (Priority 4)
-- **Platform Analytics:** Real-time metrics for total users, donors, blood banks, total requests, pending requests, and fulfilled units.
-- **User Management:** Search all accounts by name or email, filter by role (`donor`, `bloodbank`, `admin`), and delete spam/test accounts.
-- **Global Overview:** Inspect all registered donors, blood banks, and requests platform-wide.
+### 2. Blood Request Management
 
-### 6. Modern Healthcare Design System
-- Strictly complies with healthcare aesthetic standards: crisp crimson (`#D9383A`), dark charcoal (`#222222`), warm neutral backgrounds (`#FAF7F5`), and zero blue tones.
-- Responsive mobile and desktop layout with accessible typography and clean status badges.
+- Submit emergency blood requests.
+- Validate blood groups: `A+`, `A-`, `B+`, `B-`, `AB+`, `AB-`, `O+`, and `O-`.
+- Enter hospital name, city, required units, and medical reason.
+- Track request progress through status indicators.
+- Cancel pending requests.
+
+**Request statuses:**
+
+| Status | Description |
+|---|---|
+| Pending | Request submitted and awaiting action |
+| Approved | Request approved by a blood bank |
+| Fulfilled | Request marked as fulfilled |
+| Rejected | Request rejected |
+| Cancelled | Request cancelled by the requester |
+
+### 3. Blood Bank Request Management
+
+- View incoming blood requests.
+- Filter requests by blood group, city, and status.
+- Approve or reject requests.
+- Mark approved requests as fulfilled.
+- Display the handling blood bank's contact information where applicable.
+
+### 4. Donor Discovery and Management
+
+- Search donors using blood group and city.
+- View donor availability.
+- Update donor phone number, city, and state.
+- Toggle availability between available and unavailable.
+- Use direct telephone links to contact donors.
+
+### 5. Administrator Control Center
+
+- View platform statistics.
+- Monitor total users, donors, blood banks, and requests.
+- View pending requests and fulfilled units.
+- Search and filter registered users.
+- Manage user accounts.
+- View all registered donors and blood banks.
+- Inspect platform-wide blood requests.
+
+### 6. Responsive Healthcare Design
+
+- Crimson and warm neutral colour palette.
+- Primary colour: `#D9383A`.
+- Dark charcoal: `#222222`.
+- Background colour: `#FAF7F5`.
+- Responsive layouts for desktop and mobile devices.
+- Clean navigation and status indicators.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Frontend:** React 19, Vite, React Router v7, Axios (with automatic JWT request interceptors).
-- **Backend:** Node.js, Express.js 5, RESTful APIs, JWT (JSON Web Tokens), bcryptjs password hashing.
-- **Database:** MongoDB Atlas with Mongoose schemas.
-- **Environment:** Windows 11, PowerShell, Node.js.
+| Layer | Technologies |
+|---|---|
+| Frontend | React 19, Vite |
+| Routing | React Router |
+| HTTP Requests | Axios |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas |
+| ODM | Mongoose |
+| Authentication | JSON Web Tokens (JWT) |
+| Password Security | bcryptjs |
+| API Architecture | RESTful APIs |
+| Development Environment | Visual Studio Code, Windows 11, PowerShell |
+| Deployment | Render |
 
 ---
 
@@ -53,135 +115,345 @@
 ```text
 BloodLink/
 │
-├── client/                      # React + Vite Frontend
+├── client/
 │   ├── src/
 │   │   ├── components/
-│   │   │   └── Navbar.jsx       # Dynamic role-based navigation bar
+│   │   │   └── Navbar.jsx
+│   │   │
 │   │   ├── pages/
-│   │   │   ├── Home.jsx         # Landing page with interactive group directory
-│   │   │   ├── Login.jsx        # User & Admin authentication
-│   │   │   ├── Register.jsx     # Registration for Donors and Blood Banks
-│   │   │   ├── Dashboard.jsx    # Personalized Donor & Blood Bank dashboard
-│   │   │   ├── AdminDashboard.jsx # Admin control center with metric cards & tabs
-│   │   │   ├── BloodRequest.jsx # Emergency blood request submission form
-│   │   │   ├── MyBloodRequests.jsx # Personal request tracking & cancellation
-│   │   │   ├── BloodBankRequests.jsx # Incoming requests review & approval
-│   │   │   ├── BloodInventory.jsx # Real-time stock management
-│   │   │   └── SearchDonors.jsx # Emergency donor finder with click-to-call
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   ├── BloodRequest.jsx
+│   │   │   ├── MyBloodRequests.jsx
+│   │   │   ├── BloodBankRequests.jsx
+│   │   │   ├── BloodInventory.jsx
+│   │   │   └── SearchDonors.jsx
+│   │   │
 │   │   ├── services/
-│   │   │   └── api.js           # Axios instance with Bearer token interceptor
-│   │   ├── App.jsx              # Main routing configuration
+│   │   │   └── api.js
+│   │   │
+│   │   ├── App.jsx
 │   │   └── main.jsx
+│   │
 │   └── package.json
 │
-├── server/                      # Node.js + Express Backend
+├── server/
 │   ├── config/
-│   │   └── db.js                # MongoDB Atlas connection
+│   │   └── db.js
+│   │
 │   ├── controllers/
-│   │   ├── authController.js    # Register & Login controllers
-│   │   ├── bloodRequestController.js # Blood requests & status management
-│   │   ├── bloodInventoryController.js # Inventory stock updates & retrieval
-│   │   ├── donorController.js   # Donor profile & availability management
-│   │   └── adminController.js   # Analytics, user management, and oversight
+│   │   ├── authController.js
+│   │   ├── bloodRequestController.js
+│   │   ├── bloodInventoryController.js
+│   │   ├── donorController.js
+│   │   └── adminController.js
+│   │
 │   ├── middleware/
-│   │   ├── authMiddleware.js    # JWT verification middleware
-│   │   └── adminMiddleware.js   # Administrator privilege guard
+│   │   ├── authMiddleware.js
+│   │   └── adminMiddleware.js
+│   │
 │   ├── models/
-│   │   ├── User.js              # User schema (roles: donor, bloodbank, admin)
-│   │   ├── Donor.js             # Donor profile schema
-│   │   ├── BloodBank.js         # Blood bank facility schema
-│   │   ├── BloodInventory.js    # Stock units schema
-│   │   └── BloodRequest.js      # Patient request schema
+│   │   ├── User.js
+│   │   ├── Donor.js
+│   │   ├── BloodBank.js
+│   │   ├── BloodInventory.js
+│   │   └── BloodRequest.js
+│   │
 │   ├── routes/
 │   │   ├── authRoutes.js
 │   │   ├── bloodRequestRoutes.js
 │   │   ├── bloodInventoryRoutes.js
 │   │   ├── donorRoutes.js
 │   │   └── adminRoutes.js
-│   ├── .env                     # MongoDB URI, PORT, JWT Secret
+│   │
+│   ├── .env.example
 │   ├── package.json
-│   └── server.js                # Express app entry point
+│   └── server.js
 │
+├── docs/
+│   ├── BloodLink_Project_Report (1).docx
+│   └── presentation.pptx
+│
+├── screenshots/
+│
+├── .gitignore
 └── README.md
 ```
 
 ---
 
+## 🗄️ Database Design
+
+BloodLink uses MongoDB Atlas as its cloud database and Mongoose for schema modelling.
+
+The application contains the following main collections:
+
+| Collection | Purpose |
+|---|---|
+| User | Stores account information and user roles |
+| Donor | Stores blood donor profile and availability details |
+| BloodBank | Stores blood bank facility information |
+| BloodInventory | Stores blood group stock information |
+| BloodRequest | Stores emergency blood request details and status |
+
+### Collection Relationships
+
+- A User account can be associated with a Donor profile.
+- A User account can be associated with a BloodBank profile.
+- BloodInventory records are associated with a blood bank.
+- BloodRequest records are associated with the requesting user and relevant blood bank information, where applicable.
+
+The application uses MongoDB document references to maintain relationships between relevant records.
+
+---
+
 ## 🚀 Getting Started
 
+Follow these instructions to run BloodLink locally.
+
 ### 1. Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- A [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) cluster database
 
-### 2. Backend Setup
-1. Navigate to the server folder:
-   ```bash
-   cd server
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Verify your `.env` file contains:
-   ```env
-   PORT=5000
-   MONGO_URI=your_mongodb_atlas_connection_string
-   JWT_SECRET=your_jwt_secret_key
-   ```
-4. Start the backend server:
-   ```bash
-   npm start
-   ```
-   *Expected output:*
-   ```text
-   BloodLink server is running on port 5000
-   MongoDB connected successfully!
-   ```
+Install the following software:
 
-### 3. Frontend Setup
-1. Open a new terminal and navigate to the client folder:
-   ```bash
-   cd client
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-4. Open the displayed local development URL in your browser (e.g. `http://localhost:5173/`).
+- [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) account and database cluster
+- [Visual Studio Code](https://code.visualstudio.com/)
+- Git
+
+### 2. Clone the Repository
+
+Open a terminal and execute:
+
+```bash
+git clone https://github.com/Abinaya2835/BloodLink.git
+```
+
+Navigate into the project:
+
+```bash
+cd BloodLink
+```
+
+### 3. Backend Setup
+
+Navigate to the server directory:
+
+```bash
+cd server
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file inside the `server` directory.
+
+Add the following environment variables:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_secure_jwt_secret
+```
+
+Replace the placeholder values with your own MongoDB connection string and a secure JWT secret.
+
+Start the backend:
+
+```bash
+npm start
+```
+
+The backend should display messages similar to:
+
+```text
+BloodLink server is running on port 5000
+MongoDB connected successfully!
+```
+
+### 4. Frontend Setup
+
+Open a second terminal.
+
+Navigate to the client directory from the project root:
+
+```bash
+cd client
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the frontend development server:
+
+```bash
+npm run dev
+```
+
+Open the local development URL displayed in the terminal. For example:
+
+```text
+http://localhost:5173/
+```
+
+### 5. Environment Configuration
+
+The backend requires the following environment variables:
+
+| Variable | Description |
+|---|---|
+| PORT | Backend server port |
+| MONGO_URI | MongoDB Atlas connection string |
+| JWT_SECRET | Secret used for signing JWT tokens |
+
+Never upload actual `.env` files or private credentials to a public GitHub repository.
 
 ---
 
-## 🔑 Default Administrator Credentials
+## 📡 API Documentation
 
-To access the **Admin Portal** (`/admin-dashboard`):
-- **Email:** `admin@bloodlink.com`
-- **Password:** `admin123`
+The backend provides RESTful API endpoints for authentication, donor management, blood requests, blood inventory, and administration.
 
----
+**Base URL (Local):**
 
-## 📡 API Endpoints Summary
+```text
+http://localhost:5000/api
+```
 
-| Method | Endpoint | Access | Purpose |
+### Authentication APIs
+
+| Method | Endpoint | Access | Description |
 |---|---|---|---|
-| POST | `/api/auth/register` | Public | Register new Donor or Blood Bank |
-| POST | `/api/auth/login` | Public | Authenticate user & return JWT token |
-| GET | `/api/donors/search` | Public | Search available donors by blood group & city |
-| GET | `/api/donors/profile/:userId` | Authenticated | Get donor profile details |
-| PUT | `/api/donors/profile/:userId` | Authenticated | Update donor profile & availability toggle |
-| POST | `/api/blood-requests` | Authenticated | Submit an emergency blood request |
-| GET | `/api/blood-requests/my` | Authenticated | Fetch logged-in user's request history |
-| PUT | `/api/blood-requests/:id/cancel` | Authenticated | Requester cancels their pending request |
-| GET | `/api/blood-requests` | Authenticated | Blood banks & Admin view incoming requests |
-| PUT | `/api/blood-requests/:id/status` | Blood Bank | Update request status (approve / reject / fulfill) |
-| GET | `/api/blood-inventory/:userId` | Blood Bank | Fetch blood bank inventory stock |
-| PUT | `/api/blood-inventory/:userId` | Blood Bank | Add or update stock units for a blood group |
-| GET | `/api/admin/stats` | Admin | Fetch platform-wide counts & activity metrics |
-| GET | `/api/admin/users` | Admin | List, search, and filter all registered users |
-| GET | `/api/admin/donors` | Admin | Directory of all registered donors |
-| GET | `/api/admin/blood-banks` | Admin | Directory of all registered blood banks |
-| GET | `/api/admin/requests` | Admin | System-wide audit of all patient requests |
-| DELETE | `/api/admin/users/:id` | Admin | Delete a user and cascade clean related records |
+| POST | `/auth/register` | Public | Register a donor or blood bank |
+| POST | `/auth/login` | Public | Authenticate and obtain a JWT token |
+
+### Donor APIs
+
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| GET | `/donors/search` | Public | Search donors by blood group and city |
+| GET | `/donors/profile/:userId` | Authenticated | Retrieve donor profile |
+| PUT | `/donors/profile/:userId` | Authenticated | Update donor profile and availability |
+
+### Blood Request APIs
+
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| POST | `/blood-requests` | Authenticated | Submit an emergency blood request |
+| GET | `/blood-requests/my` | Authenticated | Retrieve personal request history |
+| PUT | `/blood-requests/:id/cancel` | Authenticated | Cancel a pending request |
+| GET | `/blood-requests` | Authorized users | View incoming requests |
+| PUT | `/blood-requests/:id/status` | Authorized blood bank | Update request status |
+
+### Blood Inventory APIs
+
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| GET | `/blood-inventory/:userId` | Blood Bank | Retrieve inventory |
+| PUT | `/blood-inventory/:userId` | Blood Bank | Add or update inventory units |
+
+### Administrator APIs
+
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| GET | `/admin/stats` | Admin | Retrieve platform statistics |
+| GET | `/admin/users` | Admin | List, search, and filter users |
+| GET | `/admin/donors` | Admin | Retrieve donor directory |
+| GET | `/admin/blood-banks` | Admin | Retrieve blood bank directory |
+| GET | `/admin/requests` | Admin | View all blood requests |
+| DELETE | `/admin/users/:id` | Admin | Delete a user account |
+
+**Authentication:** Protected API requests use JWT-based authentication. The frontend attaches the token through an Axios request interceptor.
+
+For detailed request parameters, sample payloads, and response formats, refer to the API documentation in the `docs` folder when available.
+
+---
+
+## 🔐 Security
+
+BloodLink includes the following security mechanisms:
+
+- Password hashing using bcryptjs.
+- JWT-based authentication.
+- Role-based access control.
+- Protected backend routes.
+- Environment variables for database credentials and JWT secrets.
+- Authenticated API requests using Bearer tokens.
+
+Users should keep their passwords and authentication tokens private. The platform should not be treated as a replacement for medical advice or professional blood bank verification.
+
+---
+
+## 📸 Application Screenshots
+
+Application screenshots will be maintained in the `screenshots/` directory.
+
+The following screenshots are recommended:
+
+1. Home page
+2. User registration page
+3. Login page
+4. Donor dashboard
+5. Blood bank dashboard
+6. Blood inventory management
+7. Blood request submission page
+8. My blood requests page
+9. Donor search page
+10. Administrator dashboard
+11. Mobile responsive view
+
+---
+
+## 📄 Project Documents
+
+The project report and presentation are available in the `docs/` directory.
+
+- **Project Report:** `docs/BloodLink_Project_Report (1).docx`
+- **Project Presentation:** `docs/presentation.pptx`
+
+Additional database design and detailed API documentation can also be added to this directory.
+
+---
+
+## 🎯 Future Enhancements
+
+Possible future improvements include:
+
+- Email and SMS notifications for emergency requests.
+- Location-based donor discovery.
+- Advanced blood availability matching.
+- Blood request priority notifications.
+- Enhanced reporting and analytics.
+- Additional verification workflows for blood bank accounts.
+
+---
+
+## 👩‍💻 Project Information
+
+**Project Name:** BloodLink – Blood Donor & Blood Bank Management Platform
+
+**Project Type:** Full-Stack Web Application
+
+**Architecture:** MERN Stack
+
+**Repository:** https://github.com/Abinaya2835/BloodLink
+
+**Live Application:** https://bloodlink-frontend-44lx.onrender.com
+
+---
+
+## 📜 License
+
+This project was developed for academic purposes. Add an appropriate open-source license if you intend to distribute or reuse the project publicly.
+
+---
+
+**BloodLink – Connecting Donors, Blood Banks, and Those in Need.** ❤️
